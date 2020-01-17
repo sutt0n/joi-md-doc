@@ -148,7 +148,7 @@ Object {
 
 ## stringList
 
-> \`array\`: \`string\`, \`number\`, \`boolean\` | optional
+> \`array\`: \`string\`, \`number\`, \`boolean\`, \`date\` | optional
 ",
 }
 `;
@@ -233,6 +233,10 @@ Object {
 ## baz
 
 > \`boolean\` | optional
+
+## faz
+
+> \`date\` | optional
 ",
 }
 `;
