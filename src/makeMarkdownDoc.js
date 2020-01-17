@@ -1,11 +1,8 @@
-const fs = require('fs');
+const fs = require('fs').promises;
 const makeMarkdownByFilename = require('./makeMarkdownByFilename');
 const mkdirp = require('mkdirp');
-const R = require('ramda');
-const { promisify } = require('util');
 const path = require('path');
-
-const writeFileAsync = promisify(fs.writeFile);
+const R = require('ramda');
 
 const defaultDir = '/doc';
 
@@ -19,9 +16,9 @@ async function makeMarkdownDoc(schema, { outputPath } = {}) {
       }),
     ),
     makeMarkdownByFilename,
-    R.forEachObjIndexed((markdown, filename) => {
+    R.forEachObjIndexed(async (markdown, filename) => {
       const path = `${outputPath}/${filename}.md`;
-      writeFileAsync(path, markdown, 'utf-8');
+      await fs.writeFile(path, markdown, 'utf-8');
       console.log(`Writing file ${path}...`);
     }),
   )(schema);
