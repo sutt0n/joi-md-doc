@@ -1,6 +1,6 @@
 const R = require('ramda');
 const mdu = require('./markdownUtil');
-const primitiveList = ['string', 'number', 'boolean', 'any'];
+const primitiveList = ['string', 'number', 'boolean', 'any', 'date'];
 
 const ju = {};
 

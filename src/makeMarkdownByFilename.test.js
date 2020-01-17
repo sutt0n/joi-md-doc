@@ -12,6 +12,7 @@ describe(`makeMarkdownByFilename`, () => {
             foo: { type: 'number' },
             bar: { type: 'string' },
             baz: { type: 'boolean' },
+            baz: { type: 'date' },
           },
         }),
       };
@@ -84,6 +85,7 @@ describe(`makeMarkdownByFilename`, () => {
                 { type: 'string' },
                 { type: 'number' },
                 { type: 'boolean' },
+                { type: 'date' },
               ],
             },
           },
