@@ -25,22 +25,22 @@ function makeMarkdownByFilename(rootSchema) {
             [ju.isPrimitive, ju.makePrimitiveField(key)],
             [
               ju.isObject,
-              R.pipe(
-                R.tap(makeMarkdownWith(nextPath)),
-                ju.makeObjectField(key),
-              ),
+              // R.pipe(
+              // R.tap(makeMarkdownWith(nextPath)),
+              ju.makeObjectField(key),
+              // ),
             ],
             [
               ju.isArray,
-              R.pipe(
-                R.tap(
-                  R.pipe(
-                    R.propOr([], 'items'),
-                    R.forEach(R.when(ju.isObject, makeMarkdownWith(nextPath))),
-                  ),
-                ),
-                ju.makeArrayField(key),
-              ),
+              // R.pipe(
+              // R.tap(
+              //   R.pipe(
+              //     R.propOr([], 'items'),
+              //     R.forEach(R.when(ju.isObject, makeMarkdownWith(nextPath))),
+              //   ),
+              // ),
+              ju.makeArrayField(key),
+              // ),
             ],
             [R.T, R.identity],
           ]),
